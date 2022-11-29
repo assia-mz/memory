@@ -1,17 +1,15 @@
 #include<stdlib.h>
 #include<graph.h>
 
-int grille()
+int grille(void)
 {
-	int x=50;
-	int	y=150;
+	int x=100;
+	int	y=50;
 	int h=150;
 	int l=150;
 	int i,j;
 	
     InitialiserGraphique();
-	
-    CreerFenetre(10,10,1350,850);
 	for (j=1;j<5;j++){
 		
 		for(i=1;i<5;i++){
@@ -27,22 +25,20 @@ int grille()
 	return EXIT_SUCCESS;
 }
 
-int grille2(){
-	int x=50;
+int grille2(void){
+	int x=100;
 	int	y=50;
 	int h=150;
 	int l=150;
 	int i,j;
 	
     InitialiserGraphique();
-	
-    CreerFenetre(10,10,1350,850);
 	for (j=1;j<5;j++){
 		for(i=1;i<5;i++){
-			DessinerRectangle ( x+=150, y, l, h );
+			DessinerRectangle ( x+=200, y, l, h );
 		}
-		y+=150;
-		x-=150*4;
+		y+=200;
+		x-=200*4;
 	}
     Touche();
 	FermerGraphique();
