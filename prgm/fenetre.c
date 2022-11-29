@@ -29,7 +29,7 @@ int main(void)
                 SourisPosition();
                 if (SourisCliquee()&&(_X>=545)&&(_X<=775)&&(_Y>=345)&&(_Y<=440))
                 {
-                    ChargerImageFond("../img/fond_orange.png");
+                    ChargerImageFond("../img/fond_orange2.png");
                 }
                 SourisPosition();
                 if (SourisCliquee()&&(_X>=545)&&(_X<=775)&&(_Y>=495)&&(_Y<=590))
