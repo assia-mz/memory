@@ -11,7 +11,6 @@ int main(void)
     CreerFenetre(250,100,1350,850);
     ChargerImageFond("../img/fond_violet.png");
     ChargerImage("../img/start_button.png",550,60,0,0,300,300);
-    cartes();
 	while(pos==1)
     {
         SourisPosition();
@@ -45,6 +44,7 @@ int main(void)
             if (SourisCliquee()&&(_X>=545)&&(_X<=775)&&(_Y>=495)&&(_Y<=590))
             {
                 ChargerImageFond("../img/fond_rouge.png");
+                cartes();
                 grille3();
                 ChargerImage("../img/return_button.png",20,20,0,0,128,128);
                 pos=3;

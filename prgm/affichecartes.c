@@ -52,11 +52,30 @@ int cartes()
 	long int p8_2=ChargerSprite("../img/pyro.png"); // 16
 	long int p9_2=ChargerSprite("../img/voeu.png"); // 19
 	long int p10_2=ChargerSprite("../img/baie.png"); //20
-	long int dos_img=ChargerSprite("../img/dos_cartes_rouge.png"); 
+	long int dos1_1=ChargerSprite("../img/dos_cartes_rouge.png"); 
+	long int dos2_1=ChargerSprite("../img/dos_cartes_rouge.png"); 
+	long int dos3_1=ChargerSprite("../img/dos_cartes_rouge.png"); 
+	long int dos4_1=ChargerSprite("../img/dos_cartes_rouge.png"); 
+	long int dos5_1=ChargerSprite("../img/dos_cartes_rouge.png"); 
+	long int dos6_1=ChargerSprite("../img/dos_cartes_rouge.png"); 
+	long int dos7_1=ChargerSprite("../img/dos_cartes_rouge.png"); 
+	long int dos8_1=ChargerSprite("../img/dos_cartes_rouge.png"); 
+	long int dos9_1=ChargerSprite("../img/dos_cartes_rouge.png"); 
+	long int dos10_1=ChargerSprite("../img/dos_cartes_rouge.png"); 
+	long int dos1_2=ChargerSprite("../img/dos_cartes_rouge.png"); 
+	long int dos2_2=ChargerSprite("../img/dos_cartes_rouge.png"); 
+	long int dos3_2=ChargerSprite("../img/dos_cartes_rouge.png"); 
+	long int dos4_2=ChargerSprite("../img/dos_cartes_rouge.png"); 
+	long int dos5_2=ChargerSprite("../img/dos_cartes_rouge.png"); 
+	long int dos6_2=ChargerSprite("../img/dos_cartes_rouge.png"); 
+	long int dos7_2=ChargerSprite("../img/dos_cartes_rouge.png"); 
+	long int dos8_2=ChargerSprite("../img/dos_cartes_rouge.png"); 
+	long int dos9_2=ChargerSprite("../img/dos_cartes_rouge.png"); 
+	long int dos10_2=ChargerSprite("../img/dos_cartes_rouge.png"); 
 
 
 	int tabSprite[20]={p1_1,p1_2,p2_1,p2_2,p3_1,p3_2,p4_1,p4_2,p5_1,p5_2,p6_1,p6_2,p7_1,p7_2,p8_1,p8_2,p9_1,p9_2,p10_1,p10_2};
-	
+	int tabSpriteDos[20]={dos1_1,dos1_2,dos2_1,dos2_2,dos3_1,dos3_2,dos4_1,dos4_2,dos5_1,dos5_2,dos6_1,dos6_2,dos7_1,dos7_2,dos8_1,dos8_2,dos9_1,dos9_2,dos10_1,dos10_2};
 
 	for(a=0;a<20;a++){
 		grille[a]=0;
@@ -74,25 +93,11 @@ int cartes()
 			acc=acc-1;
 			RemplirRectangle(x+=200, y, l, h );
 			AfficherSprite(tabSprite[grille[acc]],x+25,y+25);
-			//AfficherSprite(dos_img,x,y);
+			AfficherSprite(tabSpriteDos[grille[acc]],x,y);
 		}
 		y+=200;
 		x-=200*5;
 	}
-
-	while(go_on)
-	{
-		if (Touche()==XK_space) go_on=0;
-		else
-		{ 	SourisPosition();
-			if (SourisCliquee()){
-				LibererSprite(dos_img);
-				AfficherSprite(dos_img, 300,45);
-				}
-		}
-	}
-
-
     return EXIT_SUCCESS;
 
 }	
