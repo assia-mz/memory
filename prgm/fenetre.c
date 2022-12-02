@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <graph.h>
-#include "grille.h"
+#include "fonctions.h"
 
 int main(void)
 {
@@ -11,6 +11,7 @@ int main(void)
     CreerFenetre(250,100,1350,850);
     ChargerImageFond("../img/fond_violet.png");
     ChargerImage("../img/start_button.png",550,60,0,0,300,300);
+    cartes();
 	while(pos==1)
     {
         SourisPosition();

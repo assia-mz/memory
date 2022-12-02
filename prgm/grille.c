@@ -1,6 +1,6 @@
 #include<stdlib.h>
 #include<graph.h>
-#include "grille.h"
+#include "fonctions.h"
 
 int grille1(void)
 {
