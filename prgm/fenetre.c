@@ -5,7 +5,6 @@
 #include <unistd.h>
 #include "fonctions.h"
 
-
 int main(void)
 {
     int pos=1;
@@ -40,81 +39,211 @@ int main(void)
         		{
         			ChargerImageFond("../img/fond_vert.png");
         			ChargerImage("../img/return_button.png",20,20,0,0,128,128);
+        			for (i=0;i<20;i++)
+					{
+						visibles[i]=0;
+					}
+        			cartes1(1,visibles,grille);
         			pos=3;
         		}
         		if ((_X>=545)&&(_X<=775)&&(_Y>=345)&&(_Y<=440))
         		{
         			ChargerImageFond("../img/fond_orange2.png");
         			ChargerImage("../img/return_button.png",20,20,0,0,128,128);
-        			pos=3;
+        			for (i=0;i<20;i++)
+					{
+						visibles[i]=0;
+					}
+        			cartes2(1,visibles,grille);
+        			pos=6;
         		}
         		if ((_X>=545)&&(_X<=775)&&(_Y>=495)&&(_Y<=590))
         		{
         			ChargerImageFond("../img/fond_rouge.png");
         			ChargerImage("../img/return_button.png",20,20,0,0,128,128);
+					for (i=0;i<20;i++)
+					{
+						visibles[i]=0;
+					}
         			cartes3(1,visibles,grille);
-        			pos=3;
+        			pos=9;
         		}
             }
-        }
-        while(pos==3)
-        {
-            SourisPosition();
-            if (SourisCliquee())
-            {
-                cases=CaseCliquee3(_X,_Y);
-                if (cases>0&&cases<=20)
-                {
-                    n1=cases-1;
-                    visibles[n1]=grille[n1];
-                    cartes3(0,visibles,grille);
-                    pos=4;
-                }
-                if ((_X>=20)&&(_X<=60)&&(_Y>=20)&&(_Y<=60))
-                {
-                    pos=1;
-                    retour=1;
-                }
-            }
-            while(pos==4)
-            {
-                SourisPosition();
-                if (SourisCliquee())
-                {
-                    cases=CaseCliquee3(_X,_Y);
-                    if (cases>0&&cases<=20&&cases!=n1+1)
-                    {
-                        n2=cases-1;
-                        visibles[n2]=grille[n2];
-                        cartes3(0,visibles,grille);
-                        pos=5;
-                    }
-                    if ((_X>=20)&&(_X<=60)&&(_Y>=20)&&(_Y<=60))
-                    {
-                         pos=1;
-                         retour=1;
-                    }
-                }
-                while (pos==5)
-                {
-                    if (visibles[n1]!=visibles[n2])
-                    {
-                         Decouvrir3(n1,n2,visibles,grille);
-                         pos=3;
-                    }
-                    else if (visibles[n1]==visibles[n2])
-                    {
-                         pos=3;
-                    }
-                    SourisPosition();
-                    if (SourisCliquee()&&(_X>=20)&&(_X<=60)&&(_Y>=20)&&(_Y<=60))
-                    {
-                         pos=1;
-                         retour=1;
-                    }
-                }
-            }
-        }
+			while(pos==3)
+			{
+				SourisPosition();
+				if (SourisCliquee())
+				{
+					cases=CaseCliquee1(_X,_Y);
+					if (cases>0&&cases<=12)
+					{
+						n1=cases-1;
+						visibles[n1]=grille[n1];
+						cartes1(0,visibles,grille);
+						pos=4;
+					}
+					if ((_X>=20)&&(_X<=60)&&(_Y>=20)&&(_Y<=60))
+					{
+						pos=1;
+						retour=1;
+					}
+				}
+				while(pos==4)
+				{
+					SourisPosition();
+					if (SourisCliquee())
+					{
+						cases=CaseCliquee1(_X,_Y);
+						if (cases>0&&cases<=12&&cases!=n1+1)
+						{
+							n2=cases-1;
+							visibles[n2]=grille[n2];
+							cartes1(0,visibles,grille);
+							pos=5;
+						}
+						if ((_X>=20)&&(_X<=60)&&(_Y>=20)&&(_Y<=60))
+						{
+							 pos=1;
+							 retour=1;
+						}
+					}
+					while (pos==5)
+					{
+						if (visibles[n1]!=visibles[n2])
+						{
+							 Decouvrir1(n1,n2,visibles,grille);
+							 pos=3;
+						}
+						else if (visibles[n1]==visibles[n2])
+						{
+							 pos=3;
+						}
+						SourisPosition();
+						if (SourisCliquee()&&(_X>=20)&&(_X<=60)&&(_Y>=20)&&(_Y<=60))
+						{
+							 pos=1;
+							 retour=1;
+						}
+					}
+				}
+			}
+			while(pos==6)
+			{
+				SourisPosition();
+				if (SourisCliquee())
+				{
+					cases=CaseCliquee2(_X,_Y);
+					if (cases>0&&cases<=16)
+					{
+						n1=cases-1;
+						visibles[n1]=grille[n1];
+						cartes2(0,visibles,grille);
+						pos=7;
+					}
+					if ((_X>=20)&&(_X<=60)&&(_Y>=20)&&(_Y<=60))
+					{
+						pos=1;
+						retour=1;
+					}
+				}
+				while(pos==7)
+				{
+					SourisPosition();
+					if (SourisCliquee())
+					{
+						cases=CaseCliquee2(_X,_Y);
+						if (cases>0&&cases<=16&&cases!=n1+1)
+						{
+							n2=cases-1;
+							visibles[n2]=grille[n2];
+							cartes2(0,visibles,grille);
+							pos=8;
+						}
+						if ((_X>=20)&&(_X<=60)&&(_Y>=20)&&(_Y<=60))
+						{
+							 pos=1;
+							 retour=1;
+						}
+					}
+					while (pos==8)
+					{
+						if (visibles[n1]!=visibles[n2])
+						{
+							 Decouvrir2(n1,n2,visibles,grille);
+							 pos=6;
+						}
+						else if (visibles[n1]==visibles[n2])
+						{
+							 pos=6;
+						}
+						SourisPosition();
+						if (SourisCliquee()&&(_X>=20)&&(_X<=60)&&(_Y>=20)&&(_Y<=60))
+						{
+							 pos=1;
+							 retour=1;
+						}
+					}
+				}
+			}
+			while(pos==9)
+			{
+				SourisPosition();
+				if (SourisCliquee())
+				{
+					cases=CaseCliquee3(_X,_Y);
+					if (cases>0&&cases<=20)
+					{
+						n1=cases-1;
+						visibles[n1]=grille[n1];
+						cartes3(0,visibles,grille);
+						pos=10;
+					}
+					if ((_X>=20)&&(_X<=60)&&(_Y>=20)&&(_Y<=60))
+					{
+						pos=1;
+						retour=1;
+					}
+				}
+				while(pos==10)
+				{
+					SourisPosition();
+					if (SourisCliquee())
+					{
+						cases=CaseCliquee3(_X,_Y);
+						if (cases>0&&cases<=20&&cases!=n1+1)
+						{
+							n2=cases-1;
+							visibles[n2]=grille[n2];
+							cartes3(0,visibles,grille);
+							pos=11;
+						}
+						if ((_X>=20)&&(_X<=60)&&(_Y>=20)&&(_Y<=60))
+						{
+							 pos=1;
+							 retour=1;
+						}
+					}
+					while (pos==11)
+					{
+						if (visibles[n1]!=visibles[n2])
+						{
+							 Decouvrir3(n1,n2,visibles,grille);
+							 pos=9;
+						}
+						else if (visibles[n1]==visibles[n2])
+						{
+							 pos=9;
+						}
+						SourisPosition();
+						if (SourisCliquee()&&(_X>=20)&&(_X<=60)&&(_Y>=20)&&(_Y<=60))
+						{
+							 pos=1;
+							 retour=1;
+						}
+					}
+				}
+			}
+		}
     }
 	Touche();
     FermerGraphique();

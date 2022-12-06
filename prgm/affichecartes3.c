@@ -52,7 +52,7 @@ int cartes3(int v,int *visibles,int *grille)
 		{
 			grille[a]=0;
 		}
-
+		
 		for(a=0;a<2;a++)
 		{
 			for (i=1;i<11;i++)
