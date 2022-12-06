@@ -38,7 +38,7 @@ int main(void)
         		if ((_X>=545)&&(_X<=775)&&(_Y>=195)&&(_Y<=290))
         		{
         			ChargerImageFond("../img/fond_vert.png");
-        			ChargerImage("../img/return_button.png",20,20,0,0,128,128);
+        			ChargerImage("../img/return_button.png",20,20,0,0,50,50);
         			for (i=0;i<20;i++)
 					{
 						visibles[i]=0;
@@ -49,7 +49,7 @@ int main(void)
         		if ((_X>=545)&&(_X<=775)&&(_Y>=345)&&(_Y<=440))
         		{
         			ChargerImageFond("../img/fond_orange2.png");
-        			ChargerImage("../img/return_button.png",20,20,0,0,128,128);
+        			ChargerImage("../img/return_button.png",20,20,0,0,50,50);
         			for (i=0;i<20;i++)
 					{
 						visibles[i]=0;
@@ -60,7 +60,7 @@ int main(void)
         		if ((_X>=545)&&(_X<=775)&&(_Y>=495)&&(_Y<=590))
         		{
         			ChargerImageFond("../img/fond_rouge.png");
-        			ChargerImage("../img/return_button.png",20,20,0,0,128,128);
+        			ChargerImage("../img/return_button.png",20,20,0,0,50,50);
 					for (i=0;i<20;i++)
 					{
 						visibles[i]=0;
@@ -82,7 +82,7 @@ int main(void)
 						cartes1(0,visibles,grille);
 						pos=4;
 					}
-					if ((_X>=20)&&(_X<=60)&&(_Y>=20)&&(_Y<=60))
+					if ((_X>=20)&&(_X<=70)&&(_Y>=20)&&(_Y<=70))
 					{
 						pos=1;
 						retour=1;
@@ -101,7 +101,7 @@ int main(void)
 							cartes1(0,visibles,grille);
 							pos=5;
 						}
-						if ((_X>=20)&&(_X<=60)&&(_Y>=20)&&(_Y<=60))
+						if ((_X>=20)&&(_X<=70)&&(_Y>=20)&&(_Y<=70))
 						{
 							 pos=1;
 							 retour=1;
@@ -119,7 +119,7 @@ int main(void)
 							 pos=3;
 						}
 						SourisPosition();
-						if (SourisCliquee()&&(_X>=20)&&(_X<=60)&&(_Y>=20)&&(_Y<=60))
+						if (SourisCliquee()&&(_X>=20)&&(_X<=70)&&(_Y>=20)&&(_Y<=70))
 						{
 							 pos=1;
 							 retour=1;
@@ -140,7 +140,7 @@ int main(void)
 						cartes2(0,visibles,grille);
 						pos=7;
 					}
-					if ((_X>=20)&&(_X<=60)&&(_Y>=20)&&(_Y<=60))
+					if ((_X>=20)&&(_X<=70)&&(_Y>=20)&&(_Y<=70))
 					{
 						pos=1;
 						retour=1;
@@ -159,7 +159,7 @@ int main(void)
 							cartes2(0,visibles,grille);
 							pos=8;
 						}
-						if ((_X>=20)&&(_X<=60)&&(_Y>=20)&&(_Y<=60))
+						if ((_X>=20)&&(_X<=70)&&(_Y>=20)&&(_Y<=70))
 						{
 							 pos=1;
 							 retour=1;
@@ -177,7 +177,7 @@ int main(void)
 							 pos=6;
 						}
 						SourisPosition();
-						if (SourisCliquee()&&(_X>=20)&&(_X<=60)&&(_Y>=20)&&(_Y<=60))
+						if (SourisCliquee()&&(_X>=20)&&(_X<=70)&&(_Y>=20)&&(_Y<=70))
 						{
 							 pos=1;
 							 retour=1;
@@ -198,7 +198,7 @@ int main(void)
 						cartes3(0,visibles,grille);
 						pos=10;
 					}
-					if ((_X>=20)&&(_X<=60)&&(_Y>=20)&&(_Y<=60))
+					if ((_X>=20)&&(_X<=70)&&(_Y>=20)&&(_Y<=70))
 					{
 						pos=1;
 						retour=1;
@@ -217,7 +217,7 @@ int main(void)
 							cartes3(0,visibles,grille);
 							pos=11;
 						}
-						if ((_X>=20)&&(_X<=60)&&(_Y>=20)&&(_Y<=60))
+						if ((_X>=20)&&(_X<=70)&&(_Y>=20)&&(_Y<=70))
 						{
 							 pos=1;
 							 retour=1;
@@ -235,7 +235,7 @@ int main(void)
 							 pos=9;
 						}
 						SourisPosition();
-						if (SourisCliquee()&&(_X>=20)&&(_X<=60)&&(_Y>=20)&&(_Y<=60))
+						if (SourisCliquee()&&(_X>=20)&&(_X<=70)&&(_Y>=20)&&(_Y<=70))
 						{
 							 pos=1;
 							 retour=1;

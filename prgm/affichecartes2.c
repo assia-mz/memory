@@ -65,7 +65,7 @@ int cartes2(int v,int *visibles,int *grille)
 			ntest2++;
 			if (visibles[ntest2-1]!=0)
 			{
-				RemplirRectangle(x, y, l, h );
+				ChargerImage("../img/fond_cartes_orange.png",x,y,0,0,150,150);
 				ChargerImage(tabImages[grille[ntest2-1]-1],x+25,y+25,0,0,100,100);
 			}
 			else
