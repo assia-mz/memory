@@ -14,6 +14,7 @@ int main(void)
     int grille[20];
     int visibles[20]={0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
     int taille=0;
+    int modetricheur=1;
 
 	InitialiserGraphique();
     CreerFenetre(250,100,1350,850);
@@ -88,6 +89,26 @@ int main(void)
 						retour=1;
 					}
 				}
+
+				if (ToucheEnAttente()==1) /* on regarde si il y a des touches dans la pile */
+				{
+					if ((Touche()==XK_t)&&(modetricheur=1)) /* si la touche est touché pour la première fois*/
+					{
+						printf("Touché 1\n");
+						for (i=0;i<20;i++)
+						{
+						visibles[i]=0;
+						}
+        				cartes1(1,visibles,grille);
+						modetricheur=2;
+					}
+					if ((Touche()==XK_t)&&(modetricheur=2)) /* si la touche est touché pour la première fois*/
+					{
+						printf("Touché 2\n");
+						modetricheur=1;
+
+					}
+			}
 				while(pos==4)
 				{
 					SourisPosition();

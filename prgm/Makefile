@@ -1,8 +1,8 @@
-prog : fenetre.o cartes1.o cartes2.o cartes3.o 
-	gcc -o prog fenetre.o cartes1.o cartes2.o cartes3.o -lgraph
+run : fenetre.o cartes1.o cartes2.o cartes3.o 
+	gcc -o run fenetre.o cartes1.o cartes2.o cartes3.o -lgraph
 
 fenetre.o : fenetre.c
-	gcc -o fenetre.o -c affichecartes1.o affichecartes2.o affichecartes3.o fenetre.c -lgraph
+	gcc -o fenetre.o -c fenetre.c -lgraph
 
 cartes3.o : affichecartes3.c
 	gcc -o cartes3.o -c affichecartes3.c -lgraph

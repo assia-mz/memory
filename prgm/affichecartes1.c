@@ -107,3 +107,9 @@ void Decouvrir1(int n1,int n2,int *visibles,int *grille)
     visibles[n2]=0;
     cartes1(0,visibles,grille);
 }
+
+void Triche(int n1,int n2,int *visibles,int *grille){
+
+	ChargerImageFond("../img/fond_vert.png");
+    ChargerImage("../img/return_button.png",20,20,0,0,128,128);
+	}
