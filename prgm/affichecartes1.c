@@ -6,7 +6,7 @@
 #include <unistd.h>
 #include "fonctions.h"
 
-int cartes1(int v,int *visibles,int *grille)
+int cartes1(int v,int triche,int *visibles,int *grille)
 {	
 	int acc=12;
 	int ntest=0,ntest2=0;
@@ -61,7 +61,7 @@ int cartes1(int v,int *visibles,int *grille)
 			acc=acc-1;
 			x+=200;
 			ntest2++;
-			if (visibles[ntest2-1]!=0)
+			if (visibles[ntest2-1]!=0||triche==1)
 			{
 				ChargerImage("../img/fond_cartes_vert.png",x,y,0,0,150,150);
 				ChargerImage(tabImages[grille[ntest2-1]-1],x+25,y+25,0,0,100,100);
@@ -104,16 +104,10 @@ void Decouvrir1(int n1,int n2,int *visibles,int *grille)
     ChargerImageFond("../img/fond_vert.png");
     ChargerImage("../img/Arana.png",40,530,0,0,300,300);
     ChargerImage("../img/Ararycan.png",1040,540,0,0,300,300);
+    ChargerImage("../img/voir.png",1270,20,0,0,61,53);
     ChargerImage("../img/return_button.png",20,20,0,0,128,128);
     visibles[n1]=0;
     visibles[n2]=0;
-    cartes1(0,visibles,grille);
+    cartes1(0,0,visibles,grille);
 }
 
-void Triche1(int n1,int n2,int *visibles,int *grille){
-	/*enlève le dos des cartes*/
-}
-
-void FinTriche1(int n1,int n2,int *visibles,int *grille){
-	/*réaffiche le dos des cartes*/
-}

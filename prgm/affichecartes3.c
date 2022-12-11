@@ -1,16 +1,3 @@
-/*Les cartes seront retournées par un clic de souris
-	- charger les cartes 
-	- afficher toutes les cartes
-	- les afficher dans un écran virtuel
-	- les mélanger et leurs attribuer une place d'après la grille de randomcartes
-	- déterminer leur position dans l'écran
-	- faire une boucle et vérifier la présence de clic
-	- si clic, verifier si correspond à une des images
-	- si oui, attendre 2e clic de carte
-	- verifier si la première carte et la deuxième correspondent à une paire
-	- si c'est le cas, garder les cartes tournée, sinon les retourner
-*/	
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <graph.h>
@@ -19,7 +6,7 @@
 #include <unistd.h>
 #include "fonctions.h"
 
-int cartes3(int v,int *visibles,int *grille)
+int cartes3(int v,int triche,int *visibles,int *grille)
 {	
 	int acc=20;
 	int ntest=0,ntest2=0;
@@ -78,7 +65,7 @@ int cartes3(int v,int *visibles,int *grille)
 			acc=acc-1;
 			x+=200;
 			ntest2++;
-			if (visibles[ntest2-1]!=0)
+			if (visibles[ntest2-1]!=0||triche==1)
 			{
 				ChargerImage("../img/fond_cartes_rouge.png",x,y,0,0,150,150);
 				ChargerImage(tabImages[grille[ntest2-1]-1],x+25,y+25,0,0,100,100);
@@ -121,15 +108,8 @@ void Decouvrir3(int n1,int n2,int *visibles,int *grille)
     ChargerImageFond("../img/fond_rouge.png");
     ChargerImage("../img/Xiangling.png",1100,205,0,0,400,600);
     ChargerImage("../img/return_button.png",20,20,0,0,128,128);
+    ChargerImage("../img/voir.png",1270,20,0,0,61,53);
     visibles[n1]=0;
     visibles[n2]=0;
-    cartes3(0,visibles,grille);
-}
-
-void Triche3(int n1,int n2,int *visibles,int *grille){
-	/*enlève le dos des cartes*/
-}
-
-void FinTriche3(int n1,int n2,int *visibles,int *grille){
-	/*réaffiche le dos des cartes*/
+    cartes3(0,0,visibles,grille);
 }

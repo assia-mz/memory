@@ -27,14 +27,14 @@ int main(void)
     int taille=0;
     unsigned long suivant= Microsecondes()+CYCLE;
     int n=0;
+    int triche=0;
     char txt1[80]="Vous avez purifie les zones de siccite et sauve la foret !";
     char txt2[80]="Les Aranaras remercient nara dore et l'oiseau argente.";
     char txt3[80]="Vous avez battu tous les monstres aux alentours de la ville!";
     char txt4[80]="Les marchands de Liyue vous sont tres reconnaissants.";
     char txt5[80]="Vous avez arrete les Fatui et insere la Dent Etrange.";
     char txt6[80]="Vous obtenez la Lance Dosdragon !";
-
-    int modetricheur=1;
+	
 	InitialiserGraphique();
     CreerFenetre(250,100,1350,850);
     ChargerImageFond("../img/fond_violet.png");
@@ -60,6 +60,7 @@ int main(void)
         			ChoisirEcran(2);
         			ChargerImageFond("../img/fond_vert.png");
         			ChargerImage("../img/return_button.png",20,20,0,0,50,50);
+        			ChargerImage("../img/voir.png",1270,20,0,0,61,53);
         			ChargerImage("../img/Arana.png",40,530,0,0,300,300);
         			ChargerImage("../img/Ararycan.png",1040,540,0,0,300,300);
         			for (i=0;i<20;i++)
@@ -69,9 +70,10 @@ int main(void)
 					ChoisirEcran(0);
         			ChargerImageFond("../img/fond_vert.png");
         			ChargerImage("../img/return_button.png",20,20,0,0,50,50);
+        			ChargerImage("../img/voir.png",1270,20,0,0,61,53);
         			ChargerImage("../img/Arana.png",40,530,0,0,300,300);
         			ChargerImage("../img/Ararycan.png",1040,540,0,0,300,300);
-        			cartes1(1,visibles,grille);
+        			cartes1(1,triche,visibles,grille);
 					n=0;
         			pos=3;
         		}
@@ -80,6 +82,7 @@ int main(void)
         			ChoisirEcran(2);
         			ChargerImageFond("../img/fond_orange2.png");
         			ChargerImage("../img/Zhongli.png",980,260,0,0,550,550);
+        			ChargerImage("../img/voir.png",1270,20,0,0,61,53);
         			ChargerImage("../img/return_button.png",20,20,0,0,50,50);
         			for (i=0;i<20;i++)
 					{
@@ -88,8 +91,9 @@ int main(void)
 					ChoisirEcran(0);
 					ChargerImageFond("../img/fond_orange2.png");
 					ChargerImage("../img/Zhongli.png",980,260,0,0,550,550);
+					ChargerImage("../img/voir.png",1270,20,0,0,61,53);
         			ChargerImage("../img/return_button.png",20,20,0,0,50,50);
-        			cartes2(1,visibles,grille);
+        			cartes2(1,triche,visibles,grille);
 					n=0;
         			pos=6;
         		}
@@ -98,6 +102,7 @@ int main(void)
 					ChoisirEcran(2);
 					ChargerImageFond("../img/fond_rouge.png");
 					ChargerImage("../img/Xiangling.png",1100,205,0,0,400,600);
+					ChargerImage("../img/voir.png",1270,20,0,0,61,53);
         			ChargerImage("../img/return_button.png",20,20,0,0,50,50);
 					for (i=0;i<20;i++)
 					{
@@ -106,8 +111,9 @@ int main(void)
 					ChoisirEcran(0);
 					ChargerImageFond("../img/fond_rouge.png");
 					ChargerImage("../img/Xiangling.png",1100,205,0,0,400,600);
+					ChargerImage("../img/voir.png",1270,20,0,0,61,53);
         			ChargerImage("../img/return_button.png",20,20,0,0,50,50);
-        			cartes3(1,visibles,grille);
+        			cartes3(1,triche,visibles,grille);
         			n=0;
         			pos=9;
         		}
@@ -123,8 +129,24 @@ int main(void)
 						n1=cases-1;
 						visibles[n1]=grille[n1];
 						ChoisirEcran(0);
-						cartes1(0,visibles,grille);
+						cartes1(0,triche,visibles,grille);
 						pos=4;
+					}
+					if ((_X>=1270)&&(_X<=1331)&&(_Y>=20)&&(_Y<=73)&&triche==0)
+					{
+						triche=1;
+						ChoisirEcran(0);
+						cartes1(0,triche,visibles,grille);
+						while(triche==1)
+						{
+							SourisPosition();
+							if (SourisCliquee()&&(_X>=1270)&&(_X<=1331)&&(_Y>=20)&&(_Y<=73))
+							{
+								ChoisirEcran(0);
+								cartes1(0,triche,visibles,grille);
+								triche=0;
+							}
+						}
 					}
 					if ((_X>=20)&&(_X<=70)&&(_Y>=20)&&(_Y<=70))
 					{
@@ -137,27 +159,12 @@ int main(void)
 				{
 					if (Microsecondes()>suivant)
                 	{
-						cartes1(0,visibles,grille);
+						cartes1(0,triche,visibles,grille);
 	                    n++;
 	                    temps(n);
 	                    suivant=Microsecondes()+CYCLE;
 	                }
 	            }
-				if (ToucheEnAttente()==1) /* on regarde si il y a des touches dans la pile */
-				{
-					if ((Touche()==XK_t)&&(modetricheur=1)) /* si la touche est touché pour la première fois*/
-					{
-						printf("Touché 1\n");
-						//Triche1(n1,n2,visibles,grille);
-					}
-					if ((Touche()==XK_t)&&(modetricheur=2)) /* si la touche est touché pour la deuxième fois*/
-					{
-						printf("Touché 2\n");
-						modetricheur=1;
-						pos=3;
-						//FinTriche1();
-					}
-				}
 				while(pos==4)
 				{
 					SourisPosition();
@@ -169,8 +176,24 @@ int main(void)
 							n2=cases-1;
 							visibles[n2]=grille[n2];
 							ChoisirEcran(0);
-							cartes1(0,visibles,grille);
+							cartes1(0,triche,visibles,grille);
 							pos=5;
+						}
+						if ((_X>=1270)&&(_X<=1331)&&(_Y>=20)&&(_Y<=73)&&triche==0)
+						{
+							triche=1;
+							ChoisirEcran(0);
+							cartes1(0,triche,visibles,grille);
+							while(triche==1)
+							{
+								SourisPosition();
+								if (SourisCliquee()&&(_X>=1270)&&(_X<=1331)&&(_Y>=20)&&(_Y<=73))
+								{
+									ChoisirEcran(0);
+									cartes1(0,triche,visibles,grille);
+									triche=0;
+								}
+							}
 						}
 						if ((_X>=20)&&(_X<=70)&&(_Y>=20)&&(_Y<=70))
 						{
@@ -183,7 +206,7 @@ int main(void)
 					{
 						if (Microsecondes()>suivant)
 	                	{
-							cartes1(0,visibles,grille);
+							cartes1(0,triche,visibles,grille);
 		                    n++;
 		                    temps(n);
 		                    suivant=Microsecondes()+CYCLE;
@@ -231,22 +254,6 @@ int main(void)
 			}
 			while(pos==6)
 			{
-				if (ToucheEnAttente()==1) /* on regarde si il y a des touches dans la pile */
-				{
-					if ((Touche()==XK_t)&&(modetricheur=1)) /* si la touche est touché pour la première fois*/
-					{
-						printf("Touché 1\n");
-						//Triche2(n1,n2,visibles,grille);
-					}
-					if ((Touche()==XK_t)&&(modetricheur=2)) /* si la touche est touché pour la deuxième fois*/
-					{
-						printf("Touché 2\n");
-						modetricheur=1;
-						pos=6;
-						//FinTriche2();
-					}
-				}
-
 				SourisPosition();
 				if (SourisCliquee())
 				{
@@ -256,8 +263,24 @@ int main(void)
 						n1=cases-1;
 						visibles[n1]=grille[n1];
 						ChoisirEcran(0);
-						cartes2(0,visibles,grille);
+						cartes2(0,triche,visibles,grille);
 						pos=7;
+					}
+					if ((_X>=1270)&&(_X<=1331)&&(_Y>=20)&&(_Y<=73)&&triche==0)
+					{
+						triche=1;
+						ChoisirEcran(0);
+						cartes2(0,triche,visibles,grille);
+						while(triche==1)
+						{
+							SourisPosition();
+							if (SourisCliquee()&&(_X>=1270)&&(_X<=1331)&&(_Y>=20)&&(_Y<=73))
+							{
+								ChoisirEcran(0);
+								cartes2(0,triche,visibles,grille);
+								triche=0;
+							}
+						}
 					}
 					if ((_X>=20)&&(_X<=70)&&(_Y>=20)&&(_Y<=70))
 					{
@@ -270,7 +293,7 @@ int main(void)
 				{
 					if (Microsecondes()>suivant)
                 	{
-						cartes2(0,visibles,grille);
+						cartes2(0,triche,visibles,grille);
 	                    n++;
 	                    temps(n);
 	                    suivant=Microsecondes()+CYCLE;
@@ -287,8 +310,24 @@ int main(void)
 							n2=cases-1;
 							visibles[n2]=grille[n2];
 							ChoisirEcran(0);
-							cartes2(0,visibles,grille);
+							cartes2(0,triche,visibles,grille);
 							pos=8;
+						}
+						if ((_X>=1270)&&(_X<=1331)&&(_Y>=20)&&(_Y<=73)&&triche==0)
+						{
+							triche=1;
+							ChoisirEcran(0);
+							cartes2(0,triche,visibles,grille);
+							while(triche==1)
+							{
+								SourisPosition();
+								if (SourisCliquee()&&(_X>=1270)&&(_X<=1331)&&(_Y>=20)&&(_Y<=73))
+								{
+									ChoisirEcran(0);
+									cartes2(0,triche,visibles,grille);
+									triche=0;
+								}
+							}
 						}
 						if ((_X>=20)&&(_X<=70)&&(_Y>=20)&&(_Y<=70))
 						{
@@ -301,7 +340,7 @@ int main(void)
 					{
 						if (Microsecondes()>suivant)
 	                	{
-							cartes2(0,visibles,grille);
+							cartes2(0,triche,visibles,grille);
 		                    n++;
 		                    temps(n);
 		                    suivant=Microsecondes()+CYCLE;
@@ -357,8 +396,24 @@ int main(void)
 						n1=cases-1;
 						visibles[n1]=grille[n1];
 						ChoisirEcran(0);
-						cartes3(0,visibles,grille);
+						cartes3(0,triche,visibles,grille);
 						pos=10;
+					}
+					if ((_X>=1270)&&(_X<=1331)&&(_Y>=20)&&(_Y<=73)&&triche==0)
+					{
+						triche=1;
+						ChoisirEcran(0);
+						cartes3(0,triche,visibles,grille);
+						while(triche==1)
+						{
+							SourisPosition();
+							if (SourisCliquee()&&(_X>=1270)&&(_X<=1331)&&(_Y>=20)&&(_Y<=73))
+							{
+								ChoisirEcran(0);
+								cartes3(0,triche,visibles,grille);
+								triche=0;
+							}
+						}
 					}
 					if ((_X>=20)&&(_X<=70)&&(_Y>=20)&&(_Y<=70))
 					{
@@ -371,27 +426,12 @@ int main(void)
 				{
 					if (Microsecondes()>suivant)
                 	{
-						cartes3(0,visibles,grille);
+						cartes3(0,triche,visibles,grille);
 	                    n++;
 	                    temps(n);
 	                    suivant=Microsecondes()+CYCLE;
 	                }
 	            }
-				if (ToucheEnAttente()==1) /* on regarde si il y a des touches dans la pile */
-				{
-					if ((Touche()==XK_t)&&(modetricheur=1)) /* si la touche est touché pour la première fois*/
-					{
-						printf("Touché 1\n");
-						//Triche3(n1,n2,visibles,grille);
-					}
-					if ((Touche()==XK_t)&&(modetricheur=2)) /* si la touche est touché pour la première fois*/
-					{
-						printf("Touché 2\n");
-						modetricheur=1;
-						pos=9;
-						//FinTriche3();
-					}
-				}
 				while(pos==10)
 				{
 					SourisPosition();
@@ -403,8 +443,24 @@ int main(void)
 							n2=cases-1;
 							visibles[n2]=grille[n2];
 							ChoisirEcran(0);
-							cartes3(0,visibles,grille);
+							cartes3(0,triche,visibles,grille);
 							pos=11;
+						}
+						if ((_X>=1270)&&(_X<=1331)&&(_Y>=20)&&(_Y<=73)&&triche==0)
+						{
+							triche=1;
+							ChoisirEcran(0);
+							cartes3(0,triche,visibles,grille);
+							while(triche==1)
+							{
+								SourisPosition();
+								if (SourisCliquee()&&(_X>=1270)&&(_X<=1331)&&(_Y>=20)&&(_Y<=73))
+								{
+									ChoisirEcran(0);
+									cartes3(0,triche,visibles,grille);
+									triche=0;
+								}
+							}
 						}
 						if ((_X>=20)&&(_X<=70)&&(_Y>=20)&&(_Y<=70))
 						{
@@ -417,6 +473,7 @@ int main(void)
 					{
 						if (Microsecondes()>suivant)
 	                    {
+	                    	cartes3(0,triche,visibles,grille);
 	                        n++;
 	                        temps(n);
 	                        suivant=Microsecondes()+CYCLE;
