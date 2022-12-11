@@ -109,3 +109,7 @@ void Decouvrir2(int n1,int n2,int *visibles,int *grille)
     visibles[n2]=0;
     cartes2(0,visibles,grille);
 }
+
+void Triche2(int n1,int n2,int *visibles,int *grille){
+	/*enlève le dos des cartes*/
+}

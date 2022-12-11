@@ -4,7 +4,6 @@
 #include <string.h>
 #include <unistd.h>
 #include "fonctions.h"
-
 int main(void)
 {
     int pos=1;
@@ -15,7 +14,6 @@ int main(void)
     int visibles[20]={0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
     int taille=0;
     int modetricheur=1;
-
 	InitialiserGraphique();
     CreerFenetre(250,100,1350,850);
     ChargerImageFond("../img/fond_violet.png");
@@ -95,20 +93,17 @@ int main(void)
 					if ((Touche()==XK_t)&&(modetricheur=1)) /* si la touche est touché pour la première fois*/
 					{
 						printf("Touché 1\n");
-						for (i=0;i<20;i++)
-						{
-						visibles[i]=0;
-						}
-        				cartes1(1,visibles,grille);
-						modetricheur=2;
+						//Triche1(n1,n2,visibles,grille);
 					}
-					if ((Touche()==XK_t)&&(modetricheur=2)) /* si la touche est touché pour la première fois*/
+					if ((Touche()==XK_t)&&(modetricheur=2)) /* si la touche est touché pour la deuxième fois*/
 					{
 						printf("Touché 2\n");
 						modetricheur=1;
-
+						pos=3;
+						//FinTriche1();
 					}
-			}
+				}
+			
 				while(pos==4)
 				{
 					SourisPosition();
@@ -150,6 +145,22 @@ int main(void)
 			}
 			while(pos==6)
 			{
+				if (ToucheEnAttente()==1) /* on regarde si il y a des touches dans la pile */
+				{
+					if ((Touche()==XK_t)&&(modetricheur=1)) /* si la touche est touché pour la première fois*/
+					{
+						printf("Touché 1\n");
+						//Triche2(n1,n2,visibles,grille);
+					}
+					if ((Touche()==XK_t)&&(modetricheur=2)) /* si la touche est touché pour la deuxième fois*/
+					{
+						printf("Touché 2\n");
+						modetricheur=1;
+						pos=6;
+						//FinTriche2();
+					}
+				}
+
 				SourisPosition();
 				if (SourisCliquee())
 				{
@@ -167,6 +178,7 @@ int main(void)
 						retour=1;
 					}
 				}
+
 				while(pos==7)
 				{
 					SourisPosition();
@@ -186,6 +198,7 @@ int main(void)
 							 retour=1;
 						}
 					}
+
 					while (pos==8)
 					{
 						if (visibles[n1]!=visibles[n2])
@@ -225,6 +238,23 @@ int main(void)
 						retour=1;
 					}
 				}
+
+				if (ToucheEnAttente()==1) /* on regarde si il y a des touches dans la pile */
+				{
+					if ((Touche()==XK_t)&&(modetricheur=1)) /* si la touche est touché pour la première fois*/
+					{
+						printf("Touché 1\n");
+						//Triche3(n1,n2,visibles,grille);
+					}
+					if ((Touche()==XK_t)&&(modetricheur=2)) /* si la touche est touché pour la première fois*/
+					{
+						printf("Touché 2\n");
+						modetricheur=1;
+						pos=9;
+						//FinTriche3();
+					}
+				}
+
 				while(pos==10)
 				{
 					SourisPosition();

@@ -124,3 +124,11 @@ void Decouvrir3(int n1,int n2,int *visibles,int *grille)
     visibles[n2]=0;
     cartes3(0,visibles,grille);
 }
+
+void Triche3(int n1,int n2,int *visibles,int *grille){
+	/*enlève le dos des cartes*/
+}
+
+void FinTriche3(int n1,int n2,int *visibles,int *grille){
+	/*réaffiche le dos des cartes*/
+}
