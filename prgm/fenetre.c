@@ -34,6 +34,7 @@ int main(void)
     char txt5[80]="Vous avez arrete les Fatui et insere la Dent Etrange.";
     char txt6[80]="Vous obtenez la Lance Dosdragon !";
 
+    int modetricheur=1;
 	InitialiserGraphique();
     CreerFenetre(250,100,1350,850);
     ChargerImageFond("../img/fond_violet.png");
@@ -142,6 +143,21 @@ int main(void)
 	                    suivant=Microsecondes()+CYCLE;
 	                }
 	            }
+				if (ToucheEnAttente()==1) /* on regarde si il y a des touches dans la pile */
+				{
+					if ((Touche()==XK_t)&&(modetricheur=1)) /* si la touche est touché pour la première fois*/
+					{
+						printf("Touché 1\n");
+						//Triche1(n1,n2,visibles,grille);
+					}
+					if ((Touche()==XK_t)&&(modetricheur=2)) /* si la touche est touché pour la deuxième fois*/
+					{
+						printf("Touché 2\n");
+						modetricheur=1;
+						pos=3;
+						//FinTriche1();
+					}
+				}
 				while(pos==4)
 				{
 					SourisPosition();
@@ -188,8 +204,8 @@ int main(void)
 							EcrireTexte(600,750,"Victoire !",2);
 							sleep(5);
 							ChargerImageFond("../img/fond_vert.png");
-							EcrireTexte(280,360,txt1,2);
-							EcrireTexte(290,410,txt2,2);
+							EcrireTexte(280,70,txt1,2);
+							EcrireTexte(290,120,txt2,2);
 							ChargerImage("../img/Aravinay.png",330,500,0,0,300,300);
         					ChargerImage("../img/Arama.png",750,500,0,0,300,300);
         					ChargerImage("../img/return_button.png",20,20,0,0,50,50);
@@ -214,6 +230,22 @@ int main(void)
 			}
 			while(pos==6)
 			{
+				if (ToucheEnAttente()==1) /* on regarde si il y a des touches dans la pile */
+				{
+					if ((Touche()==XK_t)&&(modetricheur=1)) /* si la touche est touché pour la première fois*/
+					{
+						printf("Touché 1\n");
+						//Triche2(n1,n2,visibles,grille);
+					}
+					if ((Touche()==XK_t)&&(modetricheur=2)) /* si la touche est touché pour la deuxième fois*/
+					{
+						printf("Touché 2\n");
+						modetricheur=1;
+						pos=6;
+						//FinTriche2();
+					}
+				}
+
 				SourisPosition();
 				if (SourisCliquee())
 				{
@@ -343,6 +375,21 @@ int main(void)
 	                    suivant=Microsecondes()+CYCLE;
 	                }
 	            }
+				if (ToucheEnAttente()==1) /* on regarde si il y a des touches dans la pile */
+				{
+					if ((Touche()==XK_t)&&(modetricheur=1)) /* si la touche est touché pour la première fois*/
+					{
+						printf("Touché 1\n");
+						//Triche3(n1,n2,visibles,grille);
+					}
+					if ((Touche()==XK_t)&&(modetricheur=2)) /* si la touche est touché pour la première fois*/
+					{
+						printf("Touché 2\n");
+						modetricheur=1;
+						pos=9;
+						//FinTriche3();
+					}
+				}
 				while(pos==10)
 				{
 					SourisPosition();
