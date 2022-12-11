@@ -209,6 +209,7 @@ int main(void)
 							ChargerImage("../img/Aravinay.png",330,500,0,0,300,300);
         					ChargerImage("../img/Arama.png",750,500,0,0,300,300);
         					ChargerImage("../img/return_button.png",20,20,0,0,50,50);
+        					temps(n);
 							pos=10;
 						}
 						else if (visibles[n1]==visibles[n2])
@@ -325,6 +326,7 @@ int main(void)
 							EcrireTexte(400,360,txt3,2);
 							EcrireTexte(450,410,txt4,2);
         					ChargerImage("../img/return_button.png",20,20,0,0,50,50);
+        					temps(n);
 							pos=20;
 						}
 						else if (visibles[n1]==visibles[n2])
@@ -439,6 +441,7 @@ int main(void)
 							EcrireTexte(200,760,txt5,2);
 							EcrireTexte(280,810,txt6,2);
         					ChargerImage("../img/return_button.png",20,20,0,0,50,50);
+        					temps(n);
 							pos=30;
 						}
 						else if (visibles[n1]==visibles[n2])
