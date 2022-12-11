@@ -18,6 +18,7 @@ int cartes1(int v,int triche,int *visibles,int *grille)
 	int i,j,a,place;
 	srand(time(NULL));
 
+	// initialisation des cartes depuis leur chemin
 	char p1_1[]="../img/anemo.png";
 	char p2_1[]="../img/cryo.png"; 
 	char p3_1[]="../img/dendro.png"; 
@@ -25,10 +26,11 @@ int cartes1(int v,int triche,int *visibles,int *grille)
 	char p5_1[]="../img/geo.png"; 
 	char p6_1[]="../img/hydro.png";
 
+	//tableau contenant les chemins des images
 	char* tabImages[6]={p1_1,p2_1,p3_1,p4_1,p5_1,p6_1};
 
 
-
+	// si on veut créer la grille aléatoirement
 	if (v==1)
 	{
 		for(a=0;a<12;a++)
@@ -53,7 +55,7 @@ int cartes1(int v,int triche,int *visibles,int *grille)
 		}
 	}
 
-
+	// affichage des images ou des dos
 	for (j=1;j<4;j++)
 	{
 		for(i=1;i<5;i++)
@@ -80,6 +82,7 @@ int cartes1(int v,int triche,int *visibles,int *grille)
 
 int CaseCliquee1(int x,int y)
 {
+	// si une case est cliquée, on renvoie sa position unique dans la grille 
 	int i,j,x_base=90,y_base=125;
 	for (j=1;j<4;j++)
 	{
@@ -88,6 +91,7 @@ int CaseCliquee1(int x,int y)
 			x_base+=200;
 			if ((x>=x_base)&&(x<=x_base+150)&&(y>=y_base)&&(y<=y_base+150))
 			{
+				//indice de la case appuyée
 				return ((j-1)*4)+i;
 			}
 		}
@@ -100,6 +104,7 @@ int CaseCliquee1(int x,int y)
 	
 void Decouvrir1(int n1,int n2,int *visibles,int *grille)
 {
+	// on attend une seconde avant d'afficher l'ecran de jeu sans les cartes données en argument
     sleep(1);
     ChargerImageFond("../img/fond_vert.png");
     ChargerImage("../img/Arana.png",40,530,0,0,300,300);

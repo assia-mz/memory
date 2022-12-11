@@ -5,6 +5,7 @@
 
 int finjeu(int taille,int *visibles)
 {
+	// si chaque images est retournée, on renvoie 1
 	int i,fin=0;
 	for(i=0;i<taille;i++)
 	{
