@@ -2,7 +2,7 @@ run : fenetre.o cartes1.o cartes2.o cartes3.o
 	gcc -o run fenetre.o cartes1.o cartes2.o cartes3.o finjeu.o -lgraph
 
 finjeu.o : finjeu.c
-	gcc -c finjeu.c -lgraph
+	gcc -o finjeu.o -c finjeu.c -lgraph
 	
 fenetre.o : fenetre.c
 	gcc -o fenetre.o -c fenetre.c -lgraph
