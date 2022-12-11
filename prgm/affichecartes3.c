@@ -119,6 +119,7 @@ void Decouvrir3(int n1,int n2,int *visibles,int *grille)
 {
     sleep(1);
     ChargerImageFond("../img/fond_rouge.png");
+    ChargerImage("../img/Xiangling.png",1100,205,0,0,400,600);
     ChargerImage("../img/return_button.png",20,20,0,0,128,128);
     visibles[n1]=0;
     visibles[n2]=0;

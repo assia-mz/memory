@@ -102,6 +102,8 @@ void Decouvrir1(int n1,int n2,int *visibles,int *grille)
 {
     sleep(1);
     ChargerImageFond("../img/fond_vert.png");
+    ChargerImage("../img/Arana.png",40,530,0,0,300,300);
+    ChargerImage("../img/Ararycan.png",1040,540,0,0,300,300);
     ChargerImage("../img/return_button.png",20,20,0,0,128,128);
     visibles[n1]=0;
     visibles[n2]=0;
